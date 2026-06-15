@@ -16,60 +16,12 @@
 
   <template id="home-template">
     <section class="home-screen" aria-label="La Nevera de Crisp">
-      <div class="fridge-stage" aria-label="Nevera principal con imanes interactivos">
-        <img src="assets/fridge-base.png" alt="Nevera lila" class="fridge-base" />
+      <div class="fridge-stage exact-home" aria-label="Nevera principal con imanes interactivos">
+        <img src="assets/home-fridge-exact.png" alt="Nevera con imanes" class="fridge-composed" />
 
-        <button class="magnet magnet-game magnet-trivial" data-route="trivial" aria-label="Abrir Trivial Crisp">
-          <span class="mini">???</span>
-          <strong>Trivial<br>Crisp</strong>
-          <span class="sub">pop, lore y farándula</span>
-        </button>
-
-        <button class="magnet magnet-game magnet-barbaridad" data-route="barbaridad" aria-label="Abrir ¿Quién dijo esta barbaridad?">
-          <span class="face">👄</span>
-          <strong>¿Quién dijo<br>esta barbaridad?</strong>
-        </button>
-
-        <button class="magnet magnet-game magnet-runner" data-route="runner" aria-label="Abrir Crisp Runner">
-          <span class="bolt">⚡</span>
-          <strong>Crisp<br>Runner</strong>
-          <span class="sub">huye del drama</span>
-        </button>
-
-        <div class="magnet deco magnet-benalmadena" aria-hidden="true">
-          <span class="sun">☀</span>
-          <strong>Recuerdo de<br>Benalmádena</strong>
-        </div>
-
-        <div class="magnet deco magnet-cabra" aria-hidden="true">
-          <span class="goat">♑</span>
-          <strong>La cabra<br>de la legión</strong>
-        </div>
-
-        <div class="magnet deco magnet-lady" aria-hidden="true">
-          <span class="tiara">♛</span>
-          <strong>Lecturas<br><em>Lady Di</em></strong>
-        </div>
-
-        <div class="magnet deco magnet-costa" aria-hidden="true">
-          <span class="wave">≈</span>
-          <strong>Costa<br>da Morte</strong>
-        </div>
-
-        <div class="magnet deco magnet-leira" aria-hidden="true">
-          <span class="potato">🥔</span>
-          <strong>Vida<br>na leira</strong>
-        </div>
-
-        <div class="magnet deco magnet-dragon" aria-hidden="true">
-          <span class="dragon">♜</span>
-          <strong>Hoxe non,<br>mañá si</strong>
-        </div>
-
-        <div class="note note-open" aria-hidden="true">Abrir bajo tu responsabilidad</div>
-        <div class="note note-drama" aria-hidden="true">Drama no refrigerado</div>
-        <div class="note note-rule" aria-hidden="true">Aquí manda Crisp</div>
-        <div class="note note-private" aria-hidden="true">Uso privado sin vergüenza ;)</div>
+        <button class="click-zone zone-trivial" data-route="trivial" aria-label="Abrir Trivial Crisp"></button>
+        <button class="click-zone zone-barbaridad" data-route="barbaridad" aria-label="Abrir ¿Quién dijo esta barbaridad?"></button>
+        <button class="click-zone zone-runner" data-route="runner" aria-label="Abrir Crisp Runner"></button>
       </div>
     </section>
   </template>

@@ -12,7 +12,7 @@
 }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; min-height: 100%; color: var(--ink); background: #fff; overflow: hidden; }
+html, body { margin: 0; min-height: 100%; color: var(--ink); background: #f6f3f7; overflow: hidden; }
 button { font: inherit; }
 .app { min-height: 100dvh; }
 
@@ -359,3 +359,47 @@ blockquote { margin: 0 0 18px; font-size: clamp(1.45rem, 6vw, 2.4rem); line-heig
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+
+.fridge-stage.exact-home {
+  position: relative;
+  width: min(100vw, calc(100dvh * 941 / 1672));
+  height: min(100dvh, calc(100vw * 1672 / 941));
+  aspect-ratio: 941 / 1672;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.fridge-composed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+.exact-home .click-zone {
+  position: absolute;
+  z-index: 5;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 18px;
+  -webkit-tap-highlight-color: transparent;
+}
+.exact-home .click-zone:hover,
+.exact-home .click-zone:focus-visible {
+  outline: 3px solid rgba(255, 79, 163, .55);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px rgba(255,255,255,.4);
+}
+.exact-home .zone-trivial { left: 31.9%; top: 9.2%; width: 33.2%; height: 12.8%; }
+.exact-home .zone-barbaridad { left: 21.8%; top: 24.1%; width: 51.5%; height: 16.1%; border-radius: 32px; }
+.exact-home .zone-runner { left: 31.2%; top: 45.6%; width: 41.5%; height: 12.4%; }
+
+.home-screen .magnet, .home-screen .note { display:none; }
+
+.home-screen{background:#f6f3f7;}
