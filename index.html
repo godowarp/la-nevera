@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#8b5cf6" />
+  <meta name="theme-color" content="#d9b7ef" />
   <meta name="description" content="La Nevera de Crisp, app privada de entretenimiento personal." />
   <title>La Nevera de Crisp</title>
   <link rel="manifest" href="manifest.webmanifest" />
@@ -12,177 +12,145 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="app-shell" id="app">
-    <header class="topbar" aria-label="Cabecera de La Nevera de Crisp">
-      <button class="icon-button ghost" id="backButton" type="button" aria-label="Volver">‹</button>
-      <div class="brand-lockup">
-        <p class="eyebrow">app privada de mamarracheo selecto</p>
-        <h1>La Nevera de Crisp</h1>
-      </div>
-      <button class="icon-button" id="soundButton" type="button" aria-label="Activar o desactivar sonido">♪</button>
-    </header>
+  <main id="app" class="app" tabindex="-1"></main>
 
-    <main id="view" class="view" tabindex="-1"></main>
+  <template id="home-template">
+    <section class="home-screen" aria-label="La Nevera de Crisp">
+      <div class="fridge-stage" aria-label="Nevera principal con imanes interactivos">
+        <img src="assets/fridge-base.png" alt="Nevera lila" class="fridge-base" />
 
-    <nav class="bottom-nav" aria-label="Navegación principal">
-      <a href="#/" data-route="/" class="nav-link active"><span>✦</span><strong>Nevera</strong></a>
-      <a href="#/trivial" data-route="/trivial" class="nav-link"><span>?</span><strong>Trivial</strong></a>
-      <a href="#/barbaridad" data-route="/barbaridad" class="nav-link"><span>“”</span><strong>Frases</strong></a>
-      <a href="#/runner" data-route="/runner" class="nav-link"><span>▶</span><strong>Runner</strong></a>
-    </nav>
-  </div>
+        <button class="magnet magnet-game magnet-trivial" data-route="trivial" aria-label="Abrir Trivial Crisp">
+          <span class="mini">???</span>
+          <strong>Trivial<br>Crisp</strong>
+          <span class="sub">pop, lore y farándula</span>
+        </button>
 
-  <template id="homeTemplate">
-    <section class="home-layout">
-      <div class="hero-copy">
-        <span class="sticker-label">v1, estructura base</span>
-        <h2>La nevera está puesta. Los imanes ya mandan.</h2>
-        <p>Primera versión limpia, con los tres juegos colocados y preparados para recibir contenido propio en la siguiente versión.</p>
-      </div>
+        <button class="magnet magnet-game magnet-barbaridad" data-route="barbaridad" aria-label="Abrir ¿Quién dijo esta barbaridad?">
+          <span class="face">👄</span>
+          <strong>¿Quién dijo<br>esta barbaridad?</strong>
+        </button>
 
-      <section class="fridge" aria-label="Nevera interactiva con imanes de juegos">
-        <div class="fridge-door">
-          <div class="fridge-note top-note">uso privado<br>sin vergüenza</div>
+        <button class="magnet magnet-game magnet-runner" data-route="runner" aria-label="Abrir Crisp Runner">
+          <span class="bolt">⚡</span>
+          <strong>Crisp<br>Runner</strong>
+          <span class="sub">huye del drama</span>
+        </button>
 
-          <a class="magnet magnet-trivial" href="#/trivial" aria-label="Abrir Trivial Crisp">
-            <span class="magnet-icon">?</span>
-            <span class="magnet-title">Trivial Crisp</span>
-            <small>faranduleo, pop y lore</small>
-          </a>
-
-          <a class="magnet magnet-quote" href="#/barbaridad" aria-label="Abrir Quién dijo esta barbaridad">
-            <span class="magnet-icon">“</span>
-            <span class="magnet-title">Barbaridades</span>
-            <small>frases con delito</small>
-          </a>
-
-          <a class="magnet magnet-runner" href="#/runner" aria-label="Abrir Crisp Runner">
-            <span class="magnet-icon">▶</span>
-            <span class="magnet-title">Crisp Runner</span>
-            <small>huye del drama</small>
-          </a>
-
-          <button class="magnet magnet-locked" type="button" data-toast="La colección de imanes se abre en v2.">
-            <span class="magnet-icon">★</span>
-            <span class="magnet-title">Colección</span>
-            <small>imanes ridículos</small>
-          </button>
-
-          <button class="magnet magnet-locked magnet-small" type="button" data-toast="Ranking privado preparado para v2.">
-            <span class="magnet-icon">♕</span>
-            <span class="magnet-title">Ranking</span>
-          </button>
-
-          <button class="magnet magnet-locked magnet-small magnet-note" type="button" data-toast="El congelador secreto llegará cuando tengamos contenido real.">
-            <span class="magnet-icon">✉</span>
-            <span class="magnet-title">Congelador</span>
-          </button>
-
-          <div class="fridge-handle" aria-hidden="true"></div>
+        <div class="magnet deco magnet-benalmadena" aria-hidden="true">
+          <span class="sun">☀</span>
+          <strong>Recuerdo de<br>Benalmádena</strong>
         </div>
-      </section>
+
+        <div class="magnet deco magnet-cabra" aria-hidden="true">
+          <span class="goat">♑</span>
+          <strong>La cabra<br>de la legión</strong>
+        </div>
+
+        <div class="magnet deco magnet-lady" aria-hidden="true">
+          <span class="tiara">♛</span>
+          <strong>Lecturas<br><em>Lady Di</em></strong>
+        </div>
+
+        <div class="magnet deco magnet-costa" aria-hidden="true">
+          <span class="wave">≈</span>
+          <strong>Costa<br>da Morte</strong>
+        </div>
+
+        <div class="magnet deco magnet-leira" aria-hidden="true">
+          <span class="potato">🥔</span>
+          <strong>Vida<br>na leira</strong>
+        </div>
+
+        <div class="magnet deco magnet-dragon" aria-hidden="true">
+          <span class="dragon">♜</span>
+          <strong>Hoxe non,<br>mañá si</strong>
+        </div>
+
+        <div class="note note-open" aria-hidden="true">Abrir bajo tu responsabilidad</div>
+        <div class="note note-drama" aria-hidden="true">Drama no refrigerado</div>
+        <div class="note note-rule" aria-hidden="true">Aquí manda Crisp</div>
+        <div class="note note-private" aria-hidden="true">Uso privado sin vergüenza ;)</div>
+      </div>
     </section>
   </template>
 
-  <template id="trivialTemplate">
+  <template id="trivial-template">
     <section class="game-screen trivial-screen">
-      <div class="game-header-card">
-        <div>
-          <p class="eyebrow">juego 1</p>
-          <h2>Trivial Crisp</h2>
+      <button class="back-magnet" data-route="home" aria-label="Volver a la nevera">← Nevera</button>
+      <div class="game-card">
+        <p class="kicker">Juego 1</p>
+        <h1>Trivial Crisp</h1>
+        <p class="intro">Estructura lista. En la v2 de contenido añadiremos las preguntas reales por categorías.</p>
+        <div class="category-grid" aria-label="Categorías del trivial">
+          <button>Faranduleo</button>
+          <button>Películas y series</button>
+          <button>Cultura pop</button>
+          <button>Vida na leira</button>
+          <button>Costa da Morte lore</button>
+          <button>La vida de Cris</button>
         </div>
-        <div class="score-pill"><span>Puntos</span><strong id="trivialScore">0</strong></div>
-      </div>
-
-      <div class="category-grid" aria-label="Categorías del trivial">
-        <button class="category-card active" data-category="Faranduleo">💋<span>Faranduleo</span></button>
-        <button class="category-card" data-category="Películas y series">📼<span>Películas y series</span></button>
-        <button class="category-card" data-category="Cultura pop">📺<span>Cultura pop</span></button>
-        <button class="category-card" data-category="Vida en la leira">🚜<span>Vida en la leira</span></button>
-        <button class="category-card" data-category="Costa da Morte lore">🌊<span>Costa da Morte lore</span></button>
-        <button class="category-card" data-category="La vida de Cris">🕶️<span>La vida de Cris</span></button>
-      </div>
-
-      <article class="question-card">
-        <div class="progress-row">
-          <span>Ronda 0 de 0</span>
-          <div class="progress-track"><i style="width: 12%"></i></div>
-        </div>
-        <p class="placeholder-label">contenido pendiente para v2</p>
-        <h3>El motor del trivial ya está preparado para cargar preguntas por categorías.</h3>
-        <div class="answers-list">
-          <button type="button" disabled>A. Opción pendiente</button>
-          <button type="button" disabled>B. Opción pendiente</button>
-          <button type="button" disabled>C. Opción pendiente</button>
-          <button type="button" disabled>D. Opción pendiente</button>
-        </div>
-      </article>
-
-      <div class="tool-row">
-        <button class="tool-card" type="button" data-toast="Comodín 50/50 preparado para v2.">50/50</button>
-        <button class="tool-card" type="button" data-toast="Llamada a Patri preparada para v2.">Llamada a Patri</button>
-        <button class="tool-card" type="button" data-toast="Público del Sálvame preparado para v2.">Público del Sálvame</button>
+        <article class="question-card">
+          <div class="score-row"><span>Ronda 1/10</span><span>0 puntos</span></div>
+          <h2>Pregunta de muestra</h2>
+          <p>¿Qué categoría quieres que domine esta partida?</p>
+          <div class="answers">
+            <button data-toast="Correcto, perra ilustrada.">A. Faranduleo de alto nivel</button>
+            <button data-toast="Respuesta aceptable, pero con menos drama.">B. Cine y series</button>
+            <button data-toast="Aquí hay material académico y basura premium.">C. Cultura pop</button>
+            <button data-toast="La leira siempre tiene razón.">D. Vida na leira</button>
+          </div>
+        </article>
       </div>
     </section>
   </template>
 
-  <template id="barbaridadTemplate">
+  <template id="barbaridad-template">
     <section class="game-screen quote-screen">
-      <div class="game-header-card">
-        <div>
-          <p class="eyebrow">juego 2</p>
-          <h2>¿Quién dijo esta barbaridad?</h2>
-        </div>
-        <div class="score-pill"><span>Racha</span><strong>0</strong></div>
+      <button class="back-magnet" data-route="home" aria-label="Volver a la nevera">← Nevera</button>
+      <div class="game-card">
+        <p class="kicker">Juego 2</p>
+        <h1>¿Quién dijo esta barbaridad?</h1>
+        <p class="intro">Interfaz preparada para meter frases vuestras, frases míticas y barbaridades con denominación de origen.</p>
+        <article class="quote-box">
+          <blockquote>“Yo no me peino pa’ la gente fea. Paso olímpicamente.”</blockquote>
+          <div class="answers stacked">
+            <button data-toast="Correctísimo. Nivel Crisp.">A. Crisp</button>
+            <button data-toast="Patri podría, pero hoy no.">B. Patri</button>
+            <button data-toast="Podría ser, pero falta precisión jurídica del chisme.">C. Belén Esteban</button>
+            <button data-toast="Ese señor tendría que declarar.">D. Un señor del bar</button>
+          </div>
+        </article>
       </div>
-
-      <article class="quote-card">
-        <span class="quote-mark">“</span>
-        <p id="quoteText">Aquí irá una frase real, vuestra, ajena, local, televisiva o directamente infame.</p>
-        <span class="quote-mark end">”</span>
-      </article>
-
-      <div class="answers-list quote-answers">
-        <button type="button" disabled><span>A</span> Crisp</button>
-        <button type="button" disabled><span>B</span> Patri</button>
-        <button type="button" disabled><span>C</span> Famosa nacional</button>
-        <button type="button" disabled><span>D</span> Un señor del bar</button>
-      </div>
-
-      <aside class="status-card">
-        <strong>Estructura lista.</strong>
-        <p>En v2 cargaremos el banco de frases, respuestas correctas, feedback ácido y puntuación.</p>
-      </aside>
     </section>
   </template>
 
-  <template id="runnerTemplate">
+  <template id="runner-template">
     <section class="game-screen runner-screen">
-      <div class="game-header-card compact">
-        <div>
-          <p class="eyebrow">juego 5</p>
-          <h2>Crisp Runner</h2>
+      <button class="back-magnet" data-route="home" aria-label="Volver a la nevera">← Nevera</button>
+      <div class="runner-wrap">
+        <div class="runner-hud">
+          <strong>Crisp Runner</strong>
+          <span id="runnerScore">0</span>
         </div>
-        <div class="score-pill"><span>Puntos</span><strong id="runnerScore">0</strong></div>
-      </div>
-
-      <div class="runner-stage">
-        <canvas id="runnerCanvas" width="360" height="520" aria-label="Demo jugable de Crisp Runner"></canvas>
-        <div class="runner-overlay" id="runnerOverlay">
-          <strong>Demo de estructura</strong>
-          <p>Desliza o usa las flechas. Recoge imanes y evita el drama ajeno.</p>
-          <button class="primary-action" id="startRunner" type="button">Empezar prueba</button>
+        <div class="runner-board" id="runnerBoard" aria-label="Crisp Runner demo">
+          <div class="lane lane-left"></div>
+          <div class="lane lane-mid"></div>
+          <div class="lane lane-right"></div>
+          <div class="runner-character" id="runnerCharacter" aria-hidden="true">🏃‍♀️</div>
+          <div class="obstacle obstacle-1">drama</div>
+          <div class="obstacle obstacle-2">red flag</div>
+          <div class="pickup pickup-1">☕</div>
         </div>
-      </div>
-
-      <div class="runner-controls" aria-label="Controles de Crisp Runner">
-        <button type="button" id="moveLeft">←</button>
-        <button type="button" id="moveRight">→</button>
+        <div class="runner-controls" aria-label="Controles del runner">
+          <button id="runnerLeft">←</button>
+          <span>Desliza, toca o usa las flechas</span>
+          <button id="runnerRight">→</button>
+        </div>
       </div>
     </section>
   </template>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="app.js"></script>
 </body>
 </html>

@@ -1,39 +1,35 @@
-# La Nevera de Crisp, v1
+# La Nevera de Crisp, v2
 
-Primera versión estructural de la app privada de entretenimiento personal.
+Versión estructural corregida: la pantalla principal ya no tiene cabecera, pie, menú inferior ni elementos externos. La home es únicamente la nevera.
 
-## Qué incluye
+## Qué cambia en esta versión
 
-- Pantalla principal con nevera interactiva.
-- Tres accesos principales como imanes:
+- La nevera vacía es la base visual de la pantalla principal.
+- Los imanes y notas son elementos independientes superpuestos con CSS.
+- Los tres juegos principales funcionan como imanes clicables:
   - Trivial Crisp.
   - ¿Quién dijo esta barbaridad?
   - Crisp Runner.
-- Interfaz responsive para móvil.
-- Manifest PWA básico.
-- Service worker para caché local.
-- Demo jugable mínima de Crisp Runner.
-- Estructura preparada para añadir contenido real en v2.
+- Se elimina la navegación inferior.
+- Se elimina la cabecera de la home.
+- Se mantiene estructura PWA básica.
+- Se incluye `assets/reference-fridge-with-magnets.png` solo como referencia visual, no se usa como interfaz final.
 
-## Qué queda para v2
+## Cómo subirlo a GitHub Web
 
-- Banco real de preguntas del Trivial Crisp.
-- Banco real de frases de ¿Quién dijo esta barbaridad?
-- Feedback personalizado por acierto o fallo.
-- Sistema de logros e imanes desbloqueables.
-- Más obstáculos y objetos propios en Crisp Runner.
-- Pantalla de colección.
-- Congelador secreto.
+1. Descomprime el ZIP.
+2. Sube el contenido completo a la raíz del repositorio, sustituyendo los archivos anteriores.
+3. Asegúrate de que quedan en la raíz:
+   - `index.html`
+   - `styles.css`
+   - `app.js`
+   - `manifest.webmanifest`
+   - `sw.js`
+   - carpeta `assets`
+4. Haz commit.
+5. Espera a que GitHub Pages actualice.
+6. Si no ves cambios, limpia caché o abre en incógnito, porque la PWA puede conservar archivos antiguos.
 
-## Instalación en GitHub Web
+## Nota técnica
 
-1. Crea un repositorio nuevo o abre el repositorio donde quieras alojar la app.
-2. Sube todos los archivos y carpetas de este paquete manteniendo la estructura.
-3. Activa GitHub Pages desde Settings > Pages.
-4. Selecciona la rama principal y la carpeta raíz.
-5. Abre la URL publicada desde el móvil.
-6. En el navegador del móvil, usa la opción de añadir a pantalla de inicio.
-
-## Privacidad
-
-Esta app no tiene login ni base de datos. Si se sube a una URL pública, cualquier persona que tenga el enlace podría verla. Para un regalo estrictamente privado, conviene usar un repositorio privado o un alojamiento con control de acceso.
+Ahora mismo los imanes son elementos HTML/CSS independientes. Cuando tengas los imanes definitivos generados como PNG transparentes, se pueden sustituir por imágenes individuales sin cambiar la lógica de navegación.

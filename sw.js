@@ -1,10 +1,11 @@
-const CACHE_NAME = 'nevera-crisp-v1';
+const CACHE_NAME = 'nevera-crisp-v2';
 const ASSETS = [
   './',
   './index.html',
   './styles.css',
   './app.js',
   './manifest.webmanifest',
+  './assets/fridge-base.png',
   './assets/icon-192.png',
   './assets/icon-512.png'
 ];
