@@ -403,3 +403,21 @@ blockquote { margin: 0 0 18px; font-size: clamp(1.45rem, 6vw, 2.4rem); line-heig
 .home-screen .magnet, .home-screen .note { display:none; }
 
 .home-screen{background:#f6f3f7;}
+
+/* Corrección definitiva: las zonas clicables son totalmente invisibles.
+   No deben aparecer rectángulos, bordes ni halos al pasar el ratón o al tocar. */
+.exact-home .click-zone,
+.exact-home .click-zone:hover,
+.exact-home .click-zone:active,
+.exact-home .click-zone:focus,
+.exact-home .click-zone:focus-visible {
+  background: transparent !important;
+  border: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+.exact-home .click-zone {
+  -webkit-tap-highlight-color: transparent;
+}
